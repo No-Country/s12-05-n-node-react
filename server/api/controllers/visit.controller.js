@@ -13,9 +13,10 @@ export const registerVisit = tryCatch(async(req, res) => {
     if (!checkAllKeys) {
         return sendResponse(res, 400, 'Faltan datos obligatorios');
     }
-    const noCheckoutVisit = await Visit.find({ visitorIdentityNumber: visitFields.visitorIdentityNumber });
-    if (!noCheckoutVisit.checkOut) {
-        return sendResponse(res, 400, 'El visitante tiene un ingreso sin salida registrada');
+    const noCheckoutVisit = await Visit.findOne({ visitorIdentityNumber: visitFields.visitorIdentityNumber });
+    if (noCheckoutVisit) {
+        if (!noCheckoutVisit.hasOwnProperty('checkOut'))
+            return sendResponse(res, 400, 'El visitante tiene un ingreso sin salida registrada');
     }
     if (req.files) {
         const { image } = req.files;
