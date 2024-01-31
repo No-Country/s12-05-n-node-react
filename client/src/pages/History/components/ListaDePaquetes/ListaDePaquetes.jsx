@@ -43,7 +43,7 @@ const ListaDePaquetes = () => {
   return (
     <div className='w-full h-full  py-6 '>
       <section className='flex flex-row w-full justify-center items-center bg-white gap-2 py-5'>
-        <h2 className='w-auto text-3xl font-bold text-slate-600 shadow-black '>Novedades</h2>
+        <h2 className='w-auto text-3xl font-bold text-slate-600 shadow-black '>Paquetes</h2>
         {/* <button className='text-slate-500 cursor-pointer rounded-full w-[30px] h-[30px] grid place-content-center border-2 border-slate-600 text-xl hover:text-slate-300 hover:border-slate-300 transition-all ease-linear duration-300'>
           <BiPlus />
         </button> */}
