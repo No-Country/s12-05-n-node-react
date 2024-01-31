@@ -79,9 +79,8 @@ const Historial = () => {
         </div>
 
         <ListOfPeople personas={currentItems} />
+        <Paginacion paginate={paginate} />
       </div>
-
-      <Paginacion paginate={paginate} />
 
     </div>
   )
