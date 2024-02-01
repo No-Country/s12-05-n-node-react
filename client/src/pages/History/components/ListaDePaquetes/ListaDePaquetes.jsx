@@ -51,9 +51,9 @@ const ListaDePaquetes = () => {
 
       <section className='ContainGeneral mx-auto w-[98%] h-auto  py-2 flex flex-col lg:flex-row gap-1 flex-nowrap bg-white rounded-md'>
         <section className='sectionCard w-full flex flex-row flex-wrap justify-center items-center gap-2 lg:w-1/2  h-auto'>
-          {currentItems.map((paquete) => (
+          {currentItems.map((paquete, index) => (
             <section
-              key={paquete._id}
+              key={index}
               className={`relative w-[260px] lg:w-[340px] h-[150px] lg:h-[140px] border-2 text-left p-2 lg:p-3 rounded-md font-parrafo text-sm font-normal ${genericCard2}`}
             >
               <p className={`estadoPakage ${genericTitulo} `}>Estado: <span className={`rounded-full py-1 px-2 ${genericSpan} ${calcStatus(paquete.status) ? 'bg-green-300' : 'bg-red-400'} `}>{paquete?.status || 'pendiente'}</span> </p>
@@ -64,7 +64,8 @@ const ListaDePaquetes = () => {
               </p>
 
               <p className={`estadoPakage ${genericTitulo} `}>Destino:
-                <span className={`${genericSpan}`}>{paquete?.recipient?.fullName || 'cali'}
+                <span className={`${genericSpan}`}>
+                  {paquete?.recipient?.fullName || 'calle falsa'}
                 </span>
               </p>
 
@@ -92,7 +93,7 @@ const ListaDePaquetes = () => {
                 {/* textos detalle */}
                 <section className='DetailText w-full h-auto'>
                   <p className={`estadoPakage ${genericTitulo} `}>Destino:
-                    <span className={`${genericSpan}`}>{detailPaquete?.recipient?.fullName}</span>
+                    <span className={`${genericSpan}`}>{detailPaquete?.recipient?.fullName || 'destino'}</span>
                   </p>
                   <p className={`estadoPakage ${genericTitulo} `}>Repartidor:
                     <span className={`${genericSpan}`}>{detailPaquete?.deliverer}</span>
@@ -127,7 +128,7 @@ const ListaDePaquetes = () => {
             {/* textos detalle */}
             <section className='DetailText w-full h-auto'>
               <p className={`estadoPakage ${genericTitulo} `}>Destino:
-                <span className={`${genericSpan}`}>{detailPaquete?.recipient.fullName}</span>
+                <span className={`${genericSpan}`}>{detailPaquete?.recipient?.fullName || 'destino'}</span>
               </p>
               <p className={`estadoPakage ${genericTitulo} `}>Repartidor:
                 <span className={`${genericSpan}`}>{detailPaquete?.deliverer}</span>
