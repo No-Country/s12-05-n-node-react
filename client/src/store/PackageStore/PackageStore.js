@@ -20,10 +20,8 @@ const usePackageStore = create((set) => ({
           Authorization: `Bearer ${token}`
         }
       })
-      console.log('response getPAquetes -->', response.data)
       set({ paquetes: response?.data?.data, loading: false })
     } catch (error) {
-      console.log(error)
       set({ errorPaquete: error, loading: false })
     }
     set({ loading: false })
@@ -37,7 +35,6 @@ const usePackageStore = create((set) => ({
           Authorization: `Bearer ${token}`
         }
       })
-      console.log('response subirPaquetes -->', response.data)
       return response.data
     } catch (error) {
       console.error('Error al subir los paquetes:', error)

@@ -15,7 +15,6 @@ const VerticalMenu = ({ activeNavVerticas, setActiveNavVerticas }) => {
   const [perfilImage, setPerfilImage] = useState(null)
 
   const { user } = useAuthStore()
-  console.log('user menuVertical -->', user)
 
   const handleClickNavVerticas = (e) => {
     e.preventDefault()

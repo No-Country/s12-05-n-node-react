@@ -13,9 +13,7 @@ const UserProfile = () => {
   const navigate = useNavigate()
 
   const { editPhoto, setEditPhoto, captureImage } = usePhotoCaptureStore()
-  // console.log('token --> ', token)
 
-  // permite editar los campos del perfil
   const [editFullName, setEditFullName] = useState(false)
   const [editEmail, setEditEmail] = useState(false)
   const [editPhone, setEditPhone] = useState(false)
@@ -36,8 +34,8 @@ const UserProfile = () => {
     token && fetchUserData(token)
   }, [token, update])
 
-  console.log('capturando imagen ->', imagen)
-  console.log('va la imagen --> ', editImagen)
+  // console.log('capturando imagen ->', imagen)
+  // console.log('va la imagen --> ', editImagen)
 
   const validateForm = () => {
     const validateErrors = {}
@@ -141,7 +139,7 @@ const UserProfile = () => {
     <div className='w-[100%] h-[100%] z-10  grid place-content-center py-6'>
       <section className='w-[100%] h-auto flex flex-col justify-start items-center gap-5'>
         <button
-          onClick={handelNavigateNovedades} className='w-[287px] h-[63px] md:hidden bg-[#ccdebc] rounded-[15px] flex flex-row justify-around items-center text-black font-semibold text-lg font-titulo shadow-custom'
+          onClick={handelNavigateNovedades} className='w-[287px] h-[63px] md:hidden bg-[#ccdebc] rounded-[15px] flex flex-row justify-around items-center text-black font-semibold text-lg font-titulo shadow-custom cursor-pointer'
           to='/historial'
         >
           <span className='text-2xl'><IoIosArrowBack /></span>
@@ -157,11 +155,11 @@ const UserProfile = () => {
               editPhoto === false
                 ? (
                   <div
-                    className='imagenPerfil relative w-[100px] h-[100px] grid place-content-center rounded-full bg-gradient-to-r from-green-500 via-green-700 to-blue-400'
+                    className='imagenPerfil relative w-[100px] h-[100px] grid place-content-center rounded-full bg-gradient-to-r from-green-500 via-green-700 to-blue-400 cursor-pointer'
                   >
 
                     <img
-                      className='w-[90px] h-[90px] rounded-full object-cover '
+                      className='w-[90px] h-[90px] rounded-full object-cover cursor-pointer'
                       src={user?.photoUrl || 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1701381196/carpincho/portrait_of_a_cartoon_capybara_with_sunglasses_and_ujhmyj.jpg'} alt='carpincho image '
                     />
                     <button
@@ -178,8 +176,8 @@ const UserProfile = () => {
                       accept='image/png, image/jpeg'
                       onClick={handleClickCustom}
                       onChange={(e) => setImage(e.target.files[0])}
-                      value={captureImage || null}
-                      className='absolute w-full h-full top-0 left-0 rounded-full z-20 opacity-0'
+                      value={captureImage}
+                      className='absolute w-full h-full top-0 left-0 rounded-full z-20 opacity-0 cursor-pointer bg-slate-200'
                     />
                   </div>
                   )
@@ -196,7 +194,7 @@ const UserProfile = () => {
                   type='text'
                   name='fullName' id='fullName'
                   placeholder='Ingresa Nombre y Apellido'
-                  value={fullName || null}
+                  value={fullName || ''}
                   onChange={(e) => setFullName(e.target.value)}
                 />
                 )

@@ -19,7 +19,7 @@ export const useAuthStore = create(persist((set) => ({
   setTokenDesifred: (newToken) => set({ tokenDesifred: newToken }),
 
   updateUser: async (updatedFields, token, user) => {
-    console.log('update valores enviados -> ', updatedFields)
+    // console.log('update valores enviados -> ', updatedFields)
     try {
       const userId = user._id
 
@@ -40,7 +40,7 @@ export const useAuthStore = create(persist((set) => ({
           Authorization: `Bearer ${token}`
         }
       })
-      console.log('respuesta store -->', response)
+      // console.log('respuesta store -->', response)
       set({ user: { ...user, ...response.data.data } })
       set({ update: true })
       setTimeout(() => {
@@ -58,7 +58,7 @@ export const useAuthStore = create(persist((set) => ({
           Authorization: `Bearer ${token}`
         }
       })
-      console.log('response fetchUserData --> ', response.data)
+      // console.log('response fetchUserData --> ', response.data)
       set({ user: response.data.data })
       set({ loading: false })
     } catch (error) {

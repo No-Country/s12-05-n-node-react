@@ -14,8 +14,7 @@ const ListaDePaquetes = () => {
   const { currentItems, funcPaginate } = usePagination(paquetes)
 
   useEffect(() => {
-    const response = getPaquetes(token)
-    console.log('response --> ', response)
+    getPaquetes(token)
   }, [update])
 
   const calcStatus = (status) => status === 'received'
@@ -36,7 +35,6 @@ const ListaDePaquetes = () => {
   // if (detailPaquete === null) {
   //   setDetailPaquete(paquetes[0])
   // }
-  console.log('detailPaquete --> ', detailPaquete)
 
   const genericTitulo = 'font-titulo text-sm text-slate-600 font-bold flex justify-start items-center gap-2'
   const genericSpan = 'font-parrafo text-sm text-slate-600 font-medium'
