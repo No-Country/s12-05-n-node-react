@@ -140,7 +140,6 @@ const UserProfile = () => {
       <section className='w-[100%] h-auto flex flex-col justify-start items-center gap-5'>
         <button
           onClick={handelNavigateNovedades} className='w-[287px] h-[63px] md:hidden bg-[#ccdebc] rounded-[15px] flex flex-row justify-around items-center text-black font-semibold text-lg font-titulo shadow-custom cursor-pointer'
-          to='/historial'
         >
           <span className='text-2xl'><IoIosArrowBack /></span>
           Editar Perfil
